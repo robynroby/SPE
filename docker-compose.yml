@@ -11,7 +11,13 @@ services:
 
   db:
     image: postgres:alphine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_NAME=${DB_NAME}
     ports:
       -5432:5432
     volumes:
-      -postgres-db
+      -postgres-db:/var/lib/postgressql/data
+volumes:
+  postgres-db:

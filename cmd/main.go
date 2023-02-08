@@ -1,10 +1,12 @@
 package main
 
-import(
+import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/robynroby/SPE/database"
 )
 
-func main(){
+func main() {
+	database.Connect()
 	app := fiber.New()
 
 	setupRoutes(app)
