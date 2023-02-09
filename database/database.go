@@ -19,10 +19,10 @@ var DB Dbinstance
 
 func Connect() {
 
-	dsn := fmt.Sprintf("host=db user=%s password=%s dbname=%s port=5232 TimeZone=EastAfrica/Nairobi",
-		os.Getenv("DB_USER"),
+	dsn := fmt.Sprintf("host=db user=%s password=%s  port=5232 TimeZone=EastAfrica/Nairobi",
+		os.Getenv("DB_URL"),
 		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_NAME"),
+		// os.Getenv("DB_NAME"),
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
