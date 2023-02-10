@@ -5,7 +5,8 @@ import (
 	"github.com/robynroby/SPE/handlers"
 )
 
-func setupRoutes(app *fiber.App){
-	app.Get("/facts",handlers.ListFacts)
-	app.Post("/addfact",handlers.CreateFact)
+func setupRoutes(app *fiber.App) {
+	app.Get("/",handlers.ListFacts)
+
+	app.Post("/fact",handlers.CreateFact)
 }

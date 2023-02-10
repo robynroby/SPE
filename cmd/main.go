@@ -6,9 +6,12 @@ import (
 )
 
 func main() {
-	database.Connect()
+	// conncet to database
+	database.ConnectDb()
+
 	app := fiber.New()
 
+	// setup routes
 	setupRoutes(app)
 
 	app.Listen(":3000")

@@ -17,16 +17,17 @@ type Dbinstance struct {
 
 var DB Dbinstance
 
-func Connect() {
+func ConnectDb() {
 
-	dsn := fmt.Sprintf("host=db user=%s password=%s  port=5232 TimeZone=EastAfrica/Nairobi",
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=7922 sslmode=disable TimeZone=EastAfrica/Nairobi",
 		os.Getenv("DB_URL"),
+		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
-		// os.Getenv("DB_NAME"),
+		os.Getenv("DB_NAME"),
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
+		Logger:  logger.Default.LogMode(logger.Info),
 	})
 
 	if err != nil {
